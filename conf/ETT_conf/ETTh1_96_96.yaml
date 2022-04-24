@@ -1,0 +1,54 @@
+# Model params
+model : RTF       # model ID
+
+# Forecasting task params
+use_size  : True          # Length list [seq, label, pred]
+seq_len   : 96
+label_len : 96
+pred_len  : 96
+
+# Dataset params
+ds_name   : ETTh1          # Dataset name
+features  : MS              # M:multivariate predict multivariate, S:univariate predict univariate, MS:multivariate predict univariate'
+target    : OT             # Predict feature name [OT, MT_001]
+use_scale : True           # Use the StandardScaler
+freq      : h              # # freq for time features encoding, options:[s:secondly, t:minutely, h:hourly, d:daily, b:business days, w:weekly, m:monthly], you can also use more detailed freq like 15min or 3h
+n_workers : 12             # data loader num workers
+timeenc   : 1
+inverse   : False
+embed : timeF
+
+#Model params
+output_attention : False
+dropout    : 0.1
+d_model    : 512
+e_layers   : 2
+d_layers   : 2
+n_heads    : 1
+d_ff       : 2048
+glu_layers : 2
+tcn_layers : 4
+
+# Model input / output params
+input_dimension   : 7
+output_dimension  : 7
+
+# Early stopping
+patience : 4
+
+gradient_clip : 0.01
+
+# Optimizer params
+batch_size : 64       # Batch size of train input data
+n_epochs   : 30       # Train epochs
+lr         : 0.0001   # optimizer learning rate
+use_amp    : False    # use automatic mixed precision training
+lradj      : type1
+
+# Gpu settings
+use_gpu  : True
+gpu      : 0
+multi_gpu : True
+devices   : 0
+
+# 
